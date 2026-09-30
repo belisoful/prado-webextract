@@ -1,0 +1,9 @@
+{
+	"TWebExtractor": "Belisoful\\Prado\\Util\\WebExtract\\TWebExtractor",
+	"TWebExtract": "Belisoful\\Prado\\Util\\WebExtract\\TWebExtract",
+	"TWebFetcher": "Belisoful\\Prado\\Util\\WebExtract\\TWebFetcher",
+	"TWebFetchResult": "Belisoful\\Prado\\Util\\WebExtract\\TWebFetchResult",
+	"TWebFetchException": "Belisoful\\Prado\\Util\\WebExtract\\TWebFetchException",
+	"TWebPageReader": "Belisoful\\Prado\\Util\\WebExtract\\TWebPageReader",
+	"TWebNoRequestClient": "Belisoful\\Prado\\Util\\WebExtract\\TWebNoRequestClient"
+}

@@ -1,0 +1,12 @@
+webextract_url_invalid					= "{0}" is not a web address that can be fetched.
+webextract_url_scheme_refused			= Only http and https addresses are fetched, not "{0}".
+webextract_url_credentials_refused		= An address carrying a user name or password is not fetched: "{0}".
+webextract_fetch_host_blocked			= "{0}" is on a private, loopback, or link-local network, and is not fetched.
+webextract_fetch_too_large				= The page is larger than the limit of {0} bytes.
+webextract_fetch_too_many_redirects		= The page redirected more than {0} times.
+webextract_fetch_http_status			= The server answered with HTTP status {0}.
+webextract_fetch_failed					= The page could not be fetched: {0}
+webextract_fetcher_limit_invalid		= TWebFetcher.{0} must be a positive number, not {1}.
+webextract_fetch_not_allowed			= "{0}" was not fetched: no client was given to fetch it with.
+webextract_setting_invalid				= TWebExtractor.{0} cannot be set to {1}.
+webextract_table_nonexistent			= The web extract table "{0}" does not exist, and TWebExtractor.AutoCreateTables is false.

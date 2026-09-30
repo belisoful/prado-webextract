@@ -1,0 +1,98 @@
+{
+	"name": "belisoful/prado-webextract",
+	"type": "prado4-extension",
+	"description": "Fetch web pages safely and reduce them to clean text and metadata, for PRADO.",
+	"keywords": [
+		"prado",
+		"framework",
+		"extension",
+		"readability",
+		"scraper",
+		"oembed",
+		"ssrf"
+	],
+	"homepage": "https://github.com/belisoful/prado-webextract",
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Brad Anderson",
+			"email": "belisoful@icloud.com",
+			"role": "Developer",
+			"homepage": "https://github.com/belisoful"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Belisoful\\Prado\\Util\\WebExtract\\": "src"
+		}
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://asset-packagist.org"
+		}
+	],
+	"require": {
+		"php": ">=8.1.0",
+		"pradosoft/prado": "^4.4@dev",
+		"ext-dom": "*",
+		"ext-mbstring": "*",
+		"symfony/http-client": "^6.4.17 || ^7.4 || ^8.0",
+		"fivefilters/readability.php": "^3.3 || ^4.0",
+		"embed/embed": "^4.4",
+		"nyholm/psr7": "^1.8",
+		"symfony/http-foundation": "^6.4.41 || ^7.4.13 || ^8.0.13"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^10",
+		"phpdocumentor/shim": "^3",
+		"friendsofphp/php-cs-fixer": "^3.94",
+		"phpstan/phpstan": "^2.1.22"
+	},
+	"conflict": {
+		"masterminds/html5": "<2.7.5",
+		"oscarotero/html-parser": "<0.1.5"
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"platform": {
+			"php": "8.1"
+		},
+		"allow-plugins": {
+			"phpdocumentor/shim": true
+		}
+	},
+	"scripts": {
+		"lint": "find src tests -name '*.php' -print0 | xargs -0 -n1 php -l > /dev/null",
+		"fix": "vendor/bin/php-cs-fixer fix --using-cache=no",
+		"cs": "vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --diff",
+		"stan": "vendor/bin/phpstan analyse --memory-limit=512M",
+		"unittest": "vendor/bin/phpunit --testsuite unit",
+		"coverage": "vendor/bin/phpunit --testsuite unit --coverage-text --coverage-clover=build/logs/clover.xml",
+		"integration": "tests/integration/run-install-test.sh",
+		"fulltest": [
+			"@lint",
+			"@cs",
+			"@stan",
+			"@unittest"
+		]
+	},
+	"scripts-descriptions": {
+		"lint": "Compile-check every PHP file under src/ and tests/ with php -l.",
+		"fix": "Apply php-cs-fixer to the source tree.",
+		"cs": "Check code style without changing files (what CI runs).",
+		"stan": "Run PHPStan at the level in phpstan.neon.dist.",
+		"unittest": "Run the unit test suite.",
+		"coverage": "Run the unit tests with a text and Clover coverage report.",
+		"integration": "Install the package into a throwaway consumer project and verify the extra.prado wiring.",
+		"fulltest": "The full check: lint, code style, static analysis, unit tests, in that order."
+	},
+	"extra": {
+		"prado": {
+			"bootstrap": "Belisoful\\Prado\\Util\\WebExtract\\TWebExtractor",
+			"error-messages": "config/errorMessages.txt",
+			"class-map": "config/classes.json"
+		}
+	}
+}
